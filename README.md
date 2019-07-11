@@ -1,7 +1,10 @@
 ## Pynesweeper
 
-A basic implementation of minesweeper in Python.
+A basic implementation of
+[minesweeper](http://www.minesweeper.info/wiki/Windows_Minesweeper) in Python.
 You choose how large the grid is and how many mines there are.
+
+![](https://dl.dropboxusercontent.com/s/4tz95j9jymywnki/pynesweeper_welcome.png)
 
 ### 4x4, 2 mines
 
