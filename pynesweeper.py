@@ -46,7 +46,7 @@ class Board():
     def gen_board_header(self) -> str:
         header_str = "  P Y N E S W E E P E R\n\n"
         if self.side_len > 10:
-            self.gen_tens_line()
+            header_str += self.gen_tens_line()
         header_str += "  "
         for i in range(self.side_len):
             digit = (i+1)%10
@@ -91,13 +91,14 @@ class Board():
         if they want.
         """
         last_row_letter = chr(self.side_len+64)
-        last_col_number = self.side_len+1
-        user_str = input("Show me a move! (Like B5) ")
+        last_col_number = self.side_len
+        user_str = input("Show me a move! ")
         user_str[0].capitalize()
         while not (last_row_letter >= user_str[0] >= 'A' and user_str[1:].isdigit() and last_col_number >= int(user_str[1:]) >= 1):
-            user_str = input("You entered an invalid move."+
-                    " The first character MUST be a letter between A and {{}}.".format(last_row_letter) + 
-                    " The next character(s) MUST be a number betwen 1 and {{}}.".format(last_col_number))
+            user_str = input("You entered an invalid move.\n"+
+                    "The first character MUST be a letter between A and {}.\n".format(last_row_letter) + 
+                    "The next character(s) MUST be a number betwen 1 and {}.\n".format(last_col_number) + 
+                    "\nShow me a move! ")
         x = ord(user_str[0])-65
         y = int(user_str[1:])-1  # fencepost error
         if not self.moves[x][y]: # If this is a new move, add to the move count
